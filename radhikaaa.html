@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Special One ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1a1a2e,#16213e);
+    color:#fff;
+    overflow-x:hidden;
+}
+.container{
+    width:90%;
+    max-width:800px;
+    margin:60px auto;
+    text-align:center;
+    display:none;
+}
+.card{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,0,100,0.4);
+}
+button{
+    padding:12px 25px;
+    margin:15px;
+    border:none;
+    border-radius:25px;
+    background:#ff4e8d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{ background:#ff2e73; }
+
+.message{
+    margin-top:20px;
+    font-size:16px;
+    line-height:1.8;
+    text-align:left;
+    white-space:pre-line;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+}
+
+input{
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    text-align:center;
+}
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    animation:float 6s linear infinite;
+    z-index:-1;
+}
+@keyframes float{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+
+/* FULLSCREEN LAST PAGE */
+#last3{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg,#1a1a2e,#16213e);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="passwordPage" style="display:block;">
+  <div class="card">
+    <h2>Enter Secret Password ❤️</h2>
+    <input type="password" id="passInput">
+    <br>
+    <button onclick="checkPass()">Enter</button>
+  </div>
+</div>
+
+<div class="container" id="page1">
+  <div class="card">
+    <h2>For my special one ❤️</h2>
+    <h3>This website is for...?</h3>
+    <button onclick="showPage('anjli')">Radhika</button>
+    <button onclick="showPage('pruall')">Mayank ki Radhika</button>
+  </div>
+</div>
+
+<div class="container" id="anjli">
+  <div class="card">
+    <h3>u are not my special 😌</h3>
+    <p>Mayank ki Radhika is special for me ❤️</p>
+    <button onclick="goHome()">Back</button>
+  </div>
+</div>
+
+<div class="container" id="pruall">
+  <div class="card">
+    <h3>Are u mad? 😏</h3>
+    <button onclick="rightMad()">Yes</button>
+    <button onclick="wrongMad()">No</button>
+  </div>
+</div>
+
+<div class="container" id="wrongMad">
+  <div class="card">
+    <p>u are not my Mayank ki Radhika ❤️</p>
+    <button onclick="goHome()">Back</button>
+  </div>
+</div>
+
+<div class="container" id="question2">
+  <div class="card">
+    <h3>You are on right place ❤️</h3>
+    <p>One last question...</p>
+    <h4>What is your relation with Mayank?</h4>
+    <button onclick="friend()">Friend</button>
+    <button onclick="openMessage()">Pta nhi</button>
+  </div>
+</div>
+
+<div class="container" id="friendPage">
+  <div class="card">
+    <h3>chal nikal yaha se 😌</h3>
+    <button onclick="goHome()">Back</button>
+  </div>
+</div>
+
+<div class="container" id="finalMessage">
+  <div class="card">
+    <h2>For My Mayank ki Radhika ❤️</h2>
+    <p class="message" id="typedText"></p>
+    <button onclick="proposal()">One Last Surprise 💍</button>
+  </div>
+</div>
+
+<div class="container" id="last1">
+  <div class="card">
+    <h2>last buttonn</h2>
+    <button onclick="goLast2()">click here</button>
+  </div>
+</div>
+
+<div class="container" id="last2">
+  <div class="card">
+    <h2>sorry for lying this is last button</h2>
+    <button onclick="goLast3()">click here</button>
+  </div>
+</div>
+
+<div id="last3">
+  <div class="card">
+    <h1>Aur ky chaiye pdle ab jake aaram se</h1>
+  </div>
+</div>
+
+<script>
+let fullMessage = `Meri pyari Radhika tu kyu itna sad hori h school h ek na ek din tuje ye chordna he tha ab is chiz ko accept kr or apni life m aage bd or apni pdai m dhyaan de ppr krke aa ache se
+
+Kbhi b khud ko akela mt smjh m tere sath hmesha hu zindgi bhr rhunga or tu bhi rhegi mere sath.
+Tere liye bht saara pyr rkh rkha h mne jb aaygi tb dunga abh wo dene ka shi time ni h.
+
+M bt ni krta iska mtlb ye ni h k m pyr ni krta bht pyr h bss m abh dikhata ni kuki time shi ni h jb time shi aayga ap jhel ni paoge itna pyr h.
+
+Islie is sad duniya se bhr niklo or padhai kro 
+I m here for you alwayss. ❤️`;
+
+function hideAll(){
+  document.querySelectorAll(".container").forEach(p=>p.style.display="none");
+}
+
+function showPage(id){
+  hideAll();
+  document.getElementById(id).style.display="block";
+}
+
+function checkPass(){
+  if(document.getElementById("passInput").value==="Radhikamayank"){
+    showPage("page1");
+    document.getElementById("bgMusic").play();
+  } else { alert("Wrong password 😜"); }
+}
+
+function wrongMad(){ showPage("wrongMad"); }
+function rightMad(){ showPage("question2"); }
+function friend(){ showPage("friendPage"); }
+function goHome(){ showPage("page1"); }
+
+function openMessage(){
+  showPage("finalMessage");
+  typeEffect();
+}
+
+function typeEffect(){
+  let i=0;
+  let target=document.getElementById("typedText");
+  target.innerHTML="";
+  function typing(){
+    if(i<fullMessage.length){
+      target.innerHTML+=fullMessage.charAt(i);
+      i++;
+      setTimeout(typing,15);
+    }
+  }
+  typing();
+}
+
+function proposal(){ showPage("last1"); }
+function goLast2(){ showPage("last2"); }
+function goLast3(){
+  hideAll();
+  document.getElementById("last3").style.display="flex";
+}
+
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},6000);
+},600);
+</script>
+
+</body>
+</html>
